@@ -1,0 +1,1 @@
+export const collectorFilter = (interaction: any) => (i: any) => i.user.id === interaction.user.id;
