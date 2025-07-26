@@ -3,8 +3,6 @@ import path from "path";
 import fs from "fs";
 
 import DISCORD_CONFIG from "@/config/discord.config";
-import GOOGLE_SHEETS_CONFIG from "@/config/google-sheets.config";
-
 import {
   DiscordClientWithCommands,
   DiscordCommand,
