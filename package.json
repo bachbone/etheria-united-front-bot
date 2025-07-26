@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "npx tsc",
-    "start": "node dist/index.js",
-    "dev": "npx tsx watch src/index.ts",
+    "start": "npx tsx src/api/index.ts",
+    "dev": "npx tsx src/api/index.ts",
+    "dev-bot": "npx tsx watch src/index.ts",
     "deploy-commands": "npx tsx src/utils/deploy-commands.utils.ts"
   },
   "repository": {
@@ -23,12 +24,14 @@
     "date-fns": "^4.1.0",
     "discord.js": "^14.21.0",
     "dotenv": "^17.2.0",
+    "express": "^5.1.0",
     "google-auth-library": "^10.1.0",
     "google-spreadsheet": "^4.1.5",
     "googleapis": "^153.0.0",
     "typescript": "^5.8.3"
   },
   "devDependencies": {
+    "@types/express": "^5.0.3",
     "@types/node": "^24.0.15",
     "tsx": "^4.20.3",
     "wrangler": "^4.25.0"

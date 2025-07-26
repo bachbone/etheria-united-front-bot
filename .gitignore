@@ -140,3 +140,4 @@ vite.config.ts.timestamp-*
 
 # Google Cloud credentials
 google-cloud-credentials.json
+.vercel
