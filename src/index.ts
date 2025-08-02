@@ -19,12 +19,20 @@ const discordClient = new Client({
     GatewayIntentBits.GuildMembers,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildMessageReactions,
+    GatewayIntentBits.GuildPresences,
+    GatewayIntentBits.GuildVoiceStates,
+    GatewayIntentBits.GuildIntegrations,
+    GatewayIntentBits.GuildWebhooks,
   ],
   partials: [
     Partials.Message,
     Partials.Channel,
     Partials.Reaction,
     Partials.GuildMember,
+    Partials.User,
+    Partials.GuildScheduledEvent,
+    Partials.ThreadMember,
   ],
 }) as DiscordClientWithCommands;
 
