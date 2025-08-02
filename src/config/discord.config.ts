@@ -7,6 +7,7 @@ const config = {
   DISCORD_GUILD_ID: process.env.DISCORD_GUILD_ID || "",
   DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID || "",
   DISCORD_ALLOWED_USER_IDS: (process.env.DISCORD_ALLOWED_USER_IDS || "").split(",").map(id => id.trim()),
+  DISCORD_VISITOR_ROLE_ID: process.env.DISCORD_VISITOR_ROLE_ID || "",
 };
 
 export default config;

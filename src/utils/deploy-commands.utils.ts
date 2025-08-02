@@ -38,7 +38,12 @@ const deployCommands = async () => {
       continue;
     }
 
-    console.log(`Loading command: ${command.data.name}`);
+    if (command.disabled) {
+      console.warn(`Command ${command.name} is disabled and will not be deployed.`);
+      continue;
+    }
+
+    console.log(`Loading command: ${command.name}`);
 
     commands.push(command.data.toJSON());
   }

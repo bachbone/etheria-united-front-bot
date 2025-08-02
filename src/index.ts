@@ -16,6 +16,7 @@ import GoogleSheetsServices from "@/services/google-sheets.services";
 const discordClient = new Client({
   intents: [
     GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
   ],
@@ -34,16 +35,21 @@ const commandFiles = fs
   .readdirSync(COMMANDS_PATH)
   .filter((file) => file.endsWith(".ts") || file.endsWith(".js"));
 
+console.log(`Loading ${commandFiles.length} commands...`);
+
 for (const file of commandFiles) {
   const filePath = path.join(COMMANDS_PATH, file);
   const command: DiscordCommand = require(filePath).default;
 
-  console.log(`Loading command: ${command.data.name}`);
+  if (command.disabled) {
+    console.warn(`Command ${command.name} is disabled and will not be loaded.`);
+    continue;
+  }
 
-  discordClient.commands.set(command.data.name, command);
+  console.log(`Loading command: ${command.name}`);
+
+  discordClient.commands.set(command.name, command);
 }
-
-console.log(`Loading ${commandFiles.length} commands...`);
 
 const eventFiles = fs
   .readdirSync(EVENTS_PATH)

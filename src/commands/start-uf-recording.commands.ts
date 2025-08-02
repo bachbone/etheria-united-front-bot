@@ -8,6 +8,7 @@ import MESSAGES from "@/constants/messages.constants";
 class StartUFRecording implements DiscordCommand {
   public name = "start-uf-recording";
   public description = "Creates a new UF sheet for the current week (Monday)";
+  public disabled = true;
 
   public data: SlashCommandBuilder;
 

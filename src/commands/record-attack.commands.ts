@@ -21,6 +21,7 @@ import { DATE_WITH_TIME_FORMAT } from "@/constants/date-formats.constants";
 class RecordAttackCommand implements DiscordCommand {
   public name = "record-attack";
   public description = "Records an attack attempt in the current UF sheet";
+  public disabled = true;
 
   public data: SlashCommandBuilder;
 

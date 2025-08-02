@@ -3,6 +3,7 @@ import {
   Client,
   Collection,
   SlashCommandBuilder,
+  SlashCommandOptionsOnlyBuilder,
 } from "discord.js";
 
 export interface DiscordEvent {
@@ -12,10 +13,11 @@ export interface DiscordEvent {
 }
 
 export interface DiscordCommand {
-  data:
-    | SlashCommandBuilder
-    | Omit<SlashCommandBuilder, "addSubcommand" | "addSubcommandGroup">;
+  name: string;
+  description: string;
+  data: SlashCommandBuilder | SlashCommandOptionsOnlyBuilder;
   execute: (interaction: ChatInputCommandInteraction) => Promise<void>;
+  disabled: boolean;
 }
 
 export interface DiscordClientWithCommands extends Client {
